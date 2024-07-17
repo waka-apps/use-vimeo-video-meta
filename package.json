@@ -18,8 +18,5 @@
   "bugs": {
     "url": "https://github.com/waka-apps/use-vimeo-video-meta/issues"
   },
-  "homepage": "https://github.com/waka-apps/use-vimeo-video-meta#readme",
-  "dependencies": {
-    "@tanstack/react-query": "^5.51.3"
-  }
+  "homepage": "https://github.com/waka-apps/use-vimeo-video-meta#readme"
 }
