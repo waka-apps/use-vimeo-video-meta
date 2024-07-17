@@ -1,1 +1,1 @@
-export { useVimeoVideoMeta } from "./src/useVimeoVideoMeta.ts";
+export { VimeoVideoMeta, useVimeoVideoMeta } from "./src/useVimeoVideoMeta.ts";

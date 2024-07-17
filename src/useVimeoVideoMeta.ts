@@ -1,51 +1,30 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 
-const getVimeoMeta = async (videoId: string): Promise<string> => {
-  const vimeoApiUrl = `https://vimeo.com/api/v2/video/${videoId}.json`;
-  try {
-    const response = await axios.get(vimeoApiUrl);
-    if (response.status !== 200) {
-      throw new Error("Failed to fetch");
-    }
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching Vimeo thumbnail:", error);
-    throw new Error("Could not fetch Vimeo thumbnail");
-  }
+export type VimeoVideoMeta = {
+  type: string;
+  version: string;
+  provider_name: string;
+  provider_url: string;
+  title: string;
+  author_name: string;
+  author_url: string;
+  is_plus: string;
+  account_type: string;
+  html: string;
+  width: number;
+  height: number;
+  duration: number;
+  description: string;
+  thumbnail_url: string;
+  thumbnail_width: number;
+  thumbnail_height: number;
+  thumbnail_url_with_play_button: string;
+  upload_date: string;
+  video_id: number;
+  uri: string;
 };
 
-export const useVimeoVideoMeta = (videoId: string) => {
-  const [data, setData] = useState(undefined);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const fetchData = async () => {
-      try {
-        const result = await getVimeoMeta(videoId);
-        if (isMounted) {
-          setData(result);
-          setIsSuccess(true);
-        }
-      } catch (error) {
-        console.error("Error fetching Vimeo thumbnail:", error);
-        setIsSuccess(false);
-      }
-    };
-
-    if (videoId) {
-      fetchData();
-    } else {
-      setData(undefined);
-      setIsSuccess(false);
-    }
-
-    return () => {
-      isMounted = false;
-    };
-  }, [videoId]);
-
-  return isSuccess ? data : undefined;
+export const useVimeoVideoMeta = async (videoUrl: string) => {
+  const response = await axios.get<VimeoVideoMeta>(`https://vimeo.com/api/oembed.json?url=${videoUrl}`);
+  return response;
 };
