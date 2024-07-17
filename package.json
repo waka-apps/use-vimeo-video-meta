@@ -1,0 +1,25 @@
+{
+  "name": "use-vimeo-video-meta",
+  "version": "1.0.0",
+  "description": "Get Vimeo's video meta with VideoID.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waka-apps/use-vimeo-video-meta.git"
+  },
+  "keywords": [
+    "vimeo"
+  ],
+  "author": "waka.apps",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waka-apps/use-vimeo-video-meta/issues"
+  },
+  "homepage": "https://github.com/waka-apps/use-vimeo-video-meta#readme",
+  "dependencies": {
+    "@tanstack/react-query": "^5.51.3"
+  }
+}
