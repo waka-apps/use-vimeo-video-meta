@@ -10,15 +10,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|ts|tsx)$/, // .js, .ts, .tsxファイルに対して
+        test: /\.(js|ts)$/, // .js, .ts, .tsxファイルに対して
         exclude: /node_modules/, // node_modulesを除外
         use: {
           loader: "babel-loader", // Babelを使う
         },
       },
     ],
-  },
-  externals: {
-    react: "react", // Reactを外部依存として扱う
   },
 };
