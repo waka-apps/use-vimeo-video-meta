@@ -24,7 +24,10 @@ export type VimeoVideoMeta = {
   uri: string;
 };
 
-export const useVimeoVideoMeta = async (videoUrl: string) => {
-  const response = await axios.get<VimeoVideoMeta>(`https://vimeo.com/api/oembed.json?url=${videoUrl}`);
+export const useVimeoVideoMeta = async (videoUrl: string, accessToken?: string) => {
+  const headers = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
+  const response = await axios.get<VimeoVideoMeta>(`https://api.vimeo.com/videos/${videoUrl}`, {
+    headers,
+  });
   return response;
 };

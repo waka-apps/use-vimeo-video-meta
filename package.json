@@ -1,6 +1,6 @@
 {
   "name": "use-vimeo-video-meta",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get Vimeo's video meta with VideoID.",
   "main": "index.ts",
   "scripts": {
